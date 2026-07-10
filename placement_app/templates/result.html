@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="card">
+    {% if result == "Placed" %}
+      <h1 class="result-good">✅ {{ result }}</h1>
+    {% else %}
+      <h1 class="result-bad">❌ {{ result }}</h1>
+    {% endif %}
+
+    <p class="subtitle">Model confidence: <strong>{{ confidence }}%</strong></p>
+
+    <h3>Details you entered</h3>
+    <ul class="details-list">
+      {% for key, value in inputs.items() %}
+        <li><span>{{ key }}</span><span>{{ value }}</span></li>
+      {% endfor %}
+    </ul>
+
+    <a href="/" class="btn">Try Another Prediction</a>
+  </div>
+</body>
+</html>

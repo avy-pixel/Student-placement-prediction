@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Placement Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="card">
+    <h1>🎓 Student Placement Predictor</h1>
+    <p class="subtitle">Fill in the details below to check placement chances.</p>
+
+    <form action="/predict" method="POST" class="form-grid">
+      <div class="form-group">
+        <label for="cgpa">CGPA (0–10)</label>
+        <input type="number" step="0.01" min="0" max="10" id="cgpa" name="cgpa" required />
+      </div>
+
+      <div class="form-group">
+        <label for="internships">Internships</label>
+        <input type="number" min="0" id="internships" name="internships" required />
+      </div>
+
+      <div class="form-group">
+        <label for="projects">Projects</label>
+        <input type="number" min="0" id="projects" name="projects" required />
+      </div>
+
+      <div class="form-group">
+        <label for="workshops">Workshops / Certifications</label>
+        <input type="number" min="0" id="workshops" name="workshops" required />
+      </div>
+
+      <div class="form-group">
+        <label for="aptitude">Aptitude Test Score</label>
+        <input type="number" step="0.01" min="0" max="100" id="aptitude" name="aptitude" required />
+      </div>
+
+      <div class="form-group">
+        <label for="softskills">Soft Skills Rating (0–5)</label>
+        <input type="number" step="0.1" min="0" max="5" id="softskills" name="softskills" required />
+      </div>
+
+      <div class="form-group">
+        <label for="ssc">SSC Marks (%)</label>
+        <input type="number" step="0.01" min="0" max="100" id="ssc" name="ssc" required />
+      </div>
+
+      <div class="form-group">
+        <label for="hsc">HSC Marks (%)</label>
+        <input type="number" step="0.01" min="0" max="100" id="hsc" name="hsc" required />
+      </div>
+
+      <div class="form-group">
+        <label for="extracurricular">Extracurricular Activities</label>
+        <select id="extracurricular" name="extracurricular">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="training">Placement Training Attended</label>
+        <select id="training" name="training">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">Predict Placement</button>
+    </form>
+  </div>
+</body>
+</html>
