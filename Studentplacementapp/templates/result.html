@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Prediction Result</h1>
+
+    <h2>{{ result }}</h2>
+
+    <p><strong>Placement Probability:</strong> {{ probability }}%</p>
+
+    {% if suggestions %}
+    <div class="suggestion-box">
+
+        <h3>📈 Areas to Improve</h3>
+
+        <ul>
+            {% for suggestion in suggestions %}
+            <li>{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    {% endif %}
+
+    <div class="center">
+
+        <a href="/predict">
+            <button>Predict Again</button>
+        </a>
+
+        <a href="/">
+            <button>Home</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

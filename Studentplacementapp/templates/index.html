@@ -4,29 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Placement Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <h1>Student Placement Prediction System</h1>
+    <div class="container">
 
-    <p>
-        This web application predicts whether a student is likely to be placed
-        based on academic and extracurricular information using a Machine Learning model.
-    </p>
+        <h1>🎓 Student Placement Prediction</h1>
 
-    <hr>
+        <p>
+            Predict whether a student is likely to be placed using a Machine Learning model.
+            Enter academic and extracurricular details to receive a prediction,
+            placement probability, and personalized suggestions for improvement.
+        </p>
 
-    <h2>What can this application do?</h2>
+        <div class="center">
+            <a href="/predict">
+                <button>Start Prediction</button>
+            </a>
+        </div>
 
-    <ul>
-        <li>Predict placement chances</li>
-        <li>Uses a trained Random Forest model</li>
-        <li>Based on student academic performance</li>
-    </ul>
-
-    <a href="/predict">
-        <button>Predict Placement</button>
-    </a>
+    </div>
 
 </body>
 </html>
