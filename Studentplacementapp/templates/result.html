@@ -13,9 +13,15 @@
 
     <h1>Prediction Result</h1>
 
-    <h2>{{ result }}</h2>
+    
+    <p><strong>Prediction Confidence</strong></p>
 
-    <p><strong>Placement Probability:</strong> {{ probability }}%</p>
+<div class="progress">
+    <div class="progress-fill" style="width: {{ probability }}%;"></div>
+</div>
+
+    
+<p>{{ probability }}%</p>
 
     {% if suggestions %}
     <div class="suggestion-box">
@@ -29,6 +35,11 @@
         </ul>
 
     </div>
+    {% endif %}
+    {% if "Likely to be placed" in result %}
+    <h2 class="success">{{ result }}</h2>
+    {% else %}
+    <h2 class="danger">{{ result }}</h2>
     {% endif %}
 
     <div class="center">
