@@ -26,7 +26,7 @@ Enter a student's CGPA, internships, projects, test scores, and more, and the ap
 | HSC_Marks | 12th grade percentage |
 
 ## Project structure
-'''
+```
 Student-placement-prediction/
 ├── Studentdata/
 │   ├── Notebook.ipynb        # EDA, model training & evaluation
@@ -41,7 +41,7 @@ Student-placement-prediction/
 │       ├── predict.html
 │       └── result.html
 └── requirements.txt
-'''
+```
 ## Running locally
 
 ```bash
