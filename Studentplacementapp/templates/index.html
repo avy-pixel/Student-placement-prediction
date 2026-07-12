@@ -3,26 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Placement Prediction</title>
-
+    <title>Placement Prediction Dossier</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <div class="container">
+    <div class="page">
 
-        <h1>🎓 Student Placement Prediction</h1>
+        <div class="filecode">
+            <span>Student Records Office</span>
+            <span>File Ref. SP-01</span>
+        </div>
 
-        <p>
-            Predict whether a student is likely to be placed using a Machine Learning model.
-            Enter academic and extracurricular details to receive a prediction,
-            placement probability, and personalized suggestions for improvement.
-        </p>
+        <div class="sheet">
+            <span class="corner-bl"></span><span class="corner-br"></span>
 
-        <div class="center">
-            <a href="/predict">
-                <button>Start Prediction</button>
-            </a>
+            <p class="eyebrow">Placement Prediction Dossier</p>
+            <h1 class="display">Will this record place?</h1>
+
+            <p class="lede">
+                Submit a student's academic history, experience, and test scores.
+                The model reviews the file, returns a placement verdict with a
+                confidence rating, and notes where the record could be strengthened.
+            </p>
+
+            <hr class="rule">
+
+            <div class="center">
+                <a href="/predict" class="btn">Open New Case File →</a>
+            </div>
         </div>
 
     </div>

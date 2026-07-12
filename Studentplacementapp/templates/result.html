@@ -3,58 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Result</title>
-
+    <title>Case Verdict</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<div class="container">
+    <div class="page">
 
-    <h1>Prediction Result</h1>
+        <div class="filecode">
+            <span>Student Records Office</span>
+            <span>File Ref. SP-01</span>
+        </div>
 
-    
-    <p><strong>Prediction Confidence</strong></p>
+        <div class="sheet" style="--stamp-color: {{ '#2F6E4F' if prediction == 1 else '#9B2C2C' }};">
+            <span class="corner-bl"></span><span class="corner-br"></span>
 
-<div class="progress">
-    <div class="progress-fill" style="width: {{ probability }}%;"></div>
-</div>
+            <p class="eyebrow">Case Verdict</p>
+            <h1 class="display">Placement Assessment</h1>
 
-    
-<p>{{ probability }}%</p>
+            <div class="stamp-wrap">
+                <div class="stamp">
+                    <span class="verdict">{{ result }}</span>
+                    <span class="subverdict">Model Verdict</span>
+                </div>
+            </div>
 
-    {% if suggestions %}
-    <div class="suggestion-box">
+            <div class="confidence-label">
+                <span>Prediction Confidence</span>
+                <span>{{ probability }}%</span>
+            </div>
+            <div class="meter">
+                <div class="meter-fill" style="width: {{ probability }}%;"></div>
+            </div>
+            <p class="meter-value">{{ probability }}%</p>
 
-        <h3>📈 Areas to Improve</h3>
+            {% if suggestions %}
+            <div class="notes">
+                <h3>Registrar's Notes</h3>
+                <ol>
+                    {% for suggestion in suggestions %}
+                    <li>{{ suggestion }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+            {% endif %}
 
-        <ul>
-            {% for suggestion in suggestions %}
-            <li>{{ suggestion }}</li>
-            {% endfor %}
-        </ul>
+            <div class="actions">
+                <a href="/predict" class="btn">File Another Record</a>
+                <a href="/" class="btn btn-brass">Return Home</a>
+            </div>
+        </div>
 
     </div>
-    {% endif %}
-    {% if "Likely to be placed" in result %}
-    <h2 class="success">{{ result }}</h2>
-    {% else %}
-    <h2 class="danger">{{ result }}</h2>
-    {% endif %}
-
-    <div class="center">
-
-        <a href="/predict">
-            <button>Predict Again</button>
-        </a>
-
-        <a href="/">
-            <button>Home</button>
-        </a>
-
-    </div>
-
-</div>
 
 </body>
 </html>
